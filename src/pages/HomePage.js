@@ -1,30 +1,27 @@
-// import React from "react";
-// import BookList from "../components/BookList";
-// import BookForm from "../components/BookForm";
-
-// function HomePage() {
-//   return (
-//     <div>
-//       <h1>Library Management System</h1>
-//       <BookForm />
-//       <BookList />
-//     </div>
-//   );
-// }
-
-// export default HomePage;
-import React from "react";
+import React, { useState } from "react";
 import BookList from "../components/BookList";
 import { Link } from "react-router-dom";
-
+import MainLayout from "../components/MainLayout";
+import SearchForm from "../components/SearchForm";
 const HomePage = ({ books }) => {
+  const [search, setSearch] = useState("");
+
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="container">
-      <h1>Library Management System</h1>
-      <Link to="/add-book" className="add-book-button">
-        Add New Book
-      </Link>
-      <BookList books={books} />
+      <MainLayout />
+      <input
+        type="text"
+        placeholder="Search for a book..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        className="search-input"
+      />
+
+      <BookList books={filteredBooks} />
     </div>
   );
 };
