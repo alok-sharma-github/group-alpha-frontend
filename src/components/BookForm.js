@@ -1,17 +1,33 @@
-// src/components/BookForm.js
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 
 const BookForm = ({ addBook }) => {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [genre, setGenre] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addBook({ title, author, genre, available: true });
-    setTitle('');
-    setAuthor('');
-    setGenre('');
+    const newBook = { title, author, genre, available: true };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/books",
+        newBook,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      addBook(response.data.data); // Assuming the API returns the created book in `response.data.data`
+      setTitle("");
+      setAuthor("");
+      setGenre("");
+    } catch (error) {
+      console.error("There was an error adding the book:", error);
+    }
   };
 
   return (
@@ -43,3 +59,6 @@ const BookForm = ({ addBook }) => {
 };
 
 export default BookForm;
+ 
+
+

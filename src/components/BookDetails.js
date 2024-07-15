@@ -17,4 +17,3 @@ const BookDetails = ({ books }) => {
 };
 
 export default BookDetails;
-
