@@ -1,9 +1,7 @@
-
-
-// src/pages/HomePage.js
 import React, { useState } from 'react';
 import BookList from '../components/BookList';
 import { Link } from 'react-router-dom';
+import MainLayout from '../components/MainLayout';
 
 const HomePage = ({ books }) => {
   const [search, setSearch] = useState('');
@@ -14,7 +12,7 @@ const HomePage = ({ books }) => {
 
   return (
     <div className="container">
-      <h1>Library Management System</h1>
+        <MainLayout/>
       <input
         type="text"
         placeholder="Search for a book..."
@@ -22,7 +20,7 @@ const HomePage = ({ books }) => {
         onChange={(e) => setSearch(e.target.value)}
         className="search-input"
       />
-      <Link to="/add-book" className="add-book-button">Add New Book</Link>
+      {/* <Link to="/add-book" className="add-book-button">Add New Book</Link> */}
       <BookList books={filteredBooks} />
     </div>
   );

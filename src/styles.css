@@ -72,18 +72,17 @@ body {
     gap: 20px;
   }
   
-  /* Book Card Styles */
   .book-card {
+    flex: 1 1;
+    width: 200px;
     display: flex;
     flex-direction: column;
-    /* flex: 1 1 30%; */
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
     text-align: center;
     transition: transform 0.2s;
-    position: relative;
   }
   
   .book-card:hover {
@@ -91,7 +90,7 @@ body {
   }
   
   .book-card img {
-    width: 100%;
+    width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
@@ -123,7 +122,6 @@ body {
   .book-card a:hover {
     background-color: #0056b3;
   }
-  
   /* Book Details Styles */
   .book-details {
     background-color: #fff;
@@ -171,5 +169,5 @@ body {
   .go-back-button:hover {
     background-color: #5a6268;
   }
-  
+   
    

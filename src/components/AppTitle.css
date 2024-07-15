@@ -1,0 +1,20 @@
+/* AppTitle.css */
+.app-title-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
+  }
+  
+  .app-title {
+    font-size: 2.5em;
+    margin: 0;
+    color: #333;
+  }
+  
+  .app-subtitle {
+    font-size: 1.2em;
+    margin: 10px 0 0;
+    color: #666;
+  }
+   
